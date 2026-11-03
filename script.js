@@ -22,8 +22,12 @@ function toggle(startOver=true){
 	}
 }
 function setOption(){
-msg[this.name]=this.value;
-	toggle();
+if (this.name === 'rate' || this.name === 'pitch') {
+      msg[this.name] = parseFloat(this.value);
+    } else {
+      msg[this.name] = this.value;
+    }
+    toggle();
 }
 speechSynthesis.addEventListener('voicechanged',populateVoices);
 voicesDropdown.addEventListener('change',setVoice);
