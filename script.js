@@ -16,16 +16,16 @@ function setVoice(){
 	toggle();
 }
 function toggle(startOver=true){
-	window.speechSynthesis.cancel();
+	speechSynthesis.cancel();
 	if(startOver){
-		window.speechSynthesis.speak(msg)
+		speechSynthesis.speak(msg)
 	}
 }
 function setOption(){
 msg[this.name]=this.value;
 	toggle();
 }
-window.speechSynthesis.addEventListener('voicechanged',populateVoices);
+speechSynthesis.addEventListener('voicechanged',populateVoices);
 voicesDropdown.addEventListener('change',setVoice);
 options.forEach(option=>{option.addEventListener('change',setOption);
 	option.addEventListener('input', setOption);});					 
